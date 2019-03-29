@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="default">
+<head>
+    <title>Show User</title>
+</head>
+<body>
+<div layout:fragment="content" class="row">
+    <div class="col-xs-8 col-md-8">
+        <h3>
+            <a href="/user" class="btn btn-primary"><span class="glyphicon glyphicon-list"></span> User</a>
+        </h3>
+        <h2 th:text="${user.fullname}"></h2>
+        <dl class="list">
+            <dt>user description</dt>
+            <dd th:text="${user.id}"></dd>
+            <dt>user description</dt>
+            <dd th:text="${user.email}"></dd>
+            <dt>user description</dt>
+            <dd th:text="${user.password}"></dd>
+            <dt>user description</dt>
+            <dd th:text="${user.enabled}"></dd>
+            <dt>user description</dt>
+            <dd th:text="${user.roles}"></dd>
+        </dl>
+        <form action="/delete">
+            <input type="hidden" name="id" th:value="${user.id}" />
+            <h2><input type="submit" class="btn btn-danger" value="Delete" onclick="return confirm('Are you sure?');" />
+                <a th:href="@{'/edit/' + ${user.id}}" class="btn btn-warning">Edit</a></h2>
+        </form>
+    </div>
+</div>
+</body>
+</html>
